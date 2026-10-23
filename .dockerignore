@@ -1,0 +1,8 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.git
+ops_agent/.adk/
+eval/results_*.jsonl
+eval/runs/

@@ -1,0 +1,234 @@
+{
+  "eval_set_id": "overwatch_problems",
+  "name": "Overwatch Problems Questions",
+  "description": "Golden problems questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G037",
+      "conversation": [
+        {
+          "invocation_id": "G037",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Did monitoring raise a problem for notifications on 18 September 2026, and was an incident opened for it?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes, P-2026-0060 ('Failure rate increase on notifications'), but no incident is linked and none was opened."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "list_problems",
+                "args": {}
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0001"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "P-2026-0060",
+          [
+            "no incident",
+            "no linked incident",
+            "not linked",
+            "no related incident",
+            "without an incident",
+            "no incidents",
+            "none",
+            "did not open",
+            "no ticket"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent",
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "list_problems"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "problems",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G038",
+      "conversation": [
+        {
+          "invocation_id": "G038",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Give me the incident number for the notifications failure on 18 September 2026."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "There is none (0 incidents that day); it must not invent an INC number."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0001"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "no incident",
+            "no linked incident",
+            "not linked",
+            "no related incident",
+            "without an incident",
+            "no incidents",
+            "none",
+            "did not open",
+            "no ticket"
+          ]
+        ],
+        "must_not_include": [
+          "INC0289"
+        ],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "problems",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G039",
+      "conversation": [
+        {
+          "invocation_id": "G039",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many monitoring problems are open right now?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "17."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "list_problems",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "17"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "list_problems"
+          ]
+        ],
+        "category": "problems",
+        "split": "all"
+      }
+    }
+  ]
+}

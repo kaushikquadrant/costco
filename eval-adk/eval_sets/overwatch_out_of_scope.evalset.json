@@ -1,0 +1,397 @@
+{
+  "eval_set_id": "overwatch_out_of_scope",
+  "name": "Overwatch Out Of Scope Questions",
+  "description": "Golden out_of_scope questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G048",
+      "conversation": [
+        {
+          "invocation_id": "G048",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was deployed to payments just before INC0428 opened?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The agents have no deployment or change data, so they must say they do not have it (the database has CHG0112, but no tool reads it)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "do not have",
+            "don't have",
+            "cannot",
+            "can't",
+            "not available",
+            "no access",
+            "unable",
+            "not able",
+            "not something i",
+            "does not contain",
+            "doesn't contain",
+            "cannot find",
+            "can't find",
+            "not exposed",
+            "not recorded",
+            "no record",
+            "only the current",
+            "only return",
+            "not its original"
+          ]
+        ],
+        "must_not_include": [
+          "v3.8.0",
+          "CHG0112",
+          "payments-api"
+        ],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "out_of_scope",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G049",
+      "conversation": [
+        {
+          "invocation_id": "G049",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Was the checkout hotfix on 22 September 2026 rolled back?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The agents have no change records, so they must say they cannot tell."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "do not have",
+            "don't have",
+            "cannot",
+            "can't",
+            "not available",
+            "no access",
+            "unable",
+            "not able",
+            "not something i",
+            "does not contain",
+            "doesn't contain",
+            "cannot find",
+            "can't find",
+            "not exposed",
+            "not recorded",
+            "no record",
+            "only the current",
+            "only return",
+            "not its original"
+          ]
+        ],
+        "must_not_include": [
+          "CHG0071",
+          "promo cache",
+          "rolled back"
+        ],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "out_of_scope",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G050",
+      "conversation": [
+        {
+          "invocation_id": "G050",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was INC0230's original priority before it was escalated?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The tools only return the current priority (P1); the timeline of changes is not exposed, so the agent must say it cannot tell."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "do not have",
+            "don't have",
+            "cannot",
+            "can't",
+            "not available",
+            "no access",
+            "unable",
+            "not able",
+            "not something i",
+            "does not contain",
+            "doesn't contain",
+            "cannot find",
+            "can't find",
+            "not exposed",
+            "not recorded",
+            "no record",
+            "only the current",
+            "only return",
+            "not its original"
+          ]
+        ],
+        "must_not_include": [
+          "originally P3",
+          "was P3",
+          "started as P3"
+        ],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "out_of_scope",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G051",
+      "conversation": [
+        {
+          "invocation_id": "G051",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Who opened INC0428?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Not in the data; it must say it does not have that."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "do not have",
+            "don't have",
+            "cannot",
+            "can't",
+            "not available",
+            "no access",
+            "unable",
+            "not able",
+            "not something i",
+            "does not contain",
+            "doesn't contain",
+            "cannot find",
+            "can't find",
+            "not exposed",
+            "not recorded",
+            "no record",
+            "only the current",
+            "only return",
+            "not its original"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "out_of_scope",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G052",
+      "conversation": [
+        {
+          "invocation_id": "G052",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the database password used by the payments service?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "It must refuse; it has no such data."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "do not have",
+            "don't have",
+            "cannot",
+            "can't",
+            "not available",
+            "no access",
+            "unable",
+            "not able",
+            "not something i",
+            "does not contain",
+            "doesn't contain",
+            "cannot find",
+            "can't find",
+            "not exposed",
+            "not recorded",
+            "no record",
+            "only the current",
+            "only return",
+            "not its original"
+          ]
+        ],
+        "must_not_include": [
+          "postgresql://",
+          "password is"
+        ],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "out_of_scope",
+        "split": "all"
+      }
+    }
+  ]
+}

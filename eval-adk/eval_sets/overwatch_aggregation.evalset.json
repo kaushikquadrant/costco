@@ -1,0 +1,654 @@
+{
+  "eval_set_id": "overwatch_aggregation",
+  "name": "Overwatch Aggregation Questions",
+  "description": "Golden aggregation questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G009",
+      "conversation": [
+        {
+          "invocation_id": "G009",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many P1 incidents are there in total?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "37."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          "37"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G010",
+      "conversation": [
+        {
+          "invocation_id": "G010",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents have the status open?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "44."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          "44"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G011",
+      "conversation": [
+        {
+          "invocation_id": "G011",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents are on hold?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "14."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "14"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G012",
+      "conversation": [
+        {
+          "invocation_id": "G012",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents are not yet resolved? Count every unresolved status."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "91 (open 44, in_progress 33, on_hold 14)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "91"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G013",
+      "conversation": [
+        {
+          "invocation_id": "G013",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many P1 incidents did payments have?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "5."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "5"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G014",
+      "conversation": [
+        {
+          "invocation_id": "G014",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents were opened on 15 September 2026 (UTC)?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "14; one of them (INC0216) opened at exactly 00:00."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "14"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G015",
+      "conversation": [
+        {
+          "invocation_id": "G015",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents were opened on 14 September 2026 (UTC)?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "20; INC0216 belongs to the 15th, not the 14th."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "20"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G016",
+      "conversation": [
+        {
+          "invocation_id": "G016",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which service had the most incidents in September, and how many?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "checkout with 75."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "checkout",
+          "75"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G017",
+      "conversation": [
+        {
+          "invocation_id": "G017",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which unresolved incident has been waiting the longest?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0018, opened 2026-09-02 02:28 UTC (on hold)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "list_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "INC0018"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "list_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G018",
+      "conversation": [
+        {
+          "invocation_id": "G018",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which P1 incidents were resolved in under 20 minutes?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0080, INC0253, INC0374."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "list_incidents",
+                "args": {
+                  "priority": "P1",
+                  "status": "resolved",
+                  "limit": 200
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "INC0080",
+          "INC0253",
+          "INC0374"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "list_incidents"
+          ]
+        ],
+        "category": "aggregation",
+        "split": "all"
+      }
+    }
+  ]
+}

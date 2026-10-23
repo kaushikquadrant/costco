@@ -1,0 +1,571 @@
+{
+  "eval_set_id": "overwatch_lookup",
+  "name": "Overwatch Lookup Questions",
+  "description": "Golden lookup questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G001",
+      "conversation": [
+        {
+          "invocation_id": "G001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is INC0428 still open, and what is its priority?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0428 is open with P1 priority, affecting the payments service, with the summary \"Payments API returning 5xx\". It was opened at 2026-09-30 01:10 UTC."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0428"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          [
+            "open",
+            "open"
+          ],
+          "P1"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G002",
+      "conversation": [
+        {
+          "invocation_id": "G002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the status and summary of INC0433?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The incident INC0433 is open, P2 priority, affecting the search service, with the summary \"Search results slow for some users\". It was opened at 2026-09-30 08:15 UTC. The root cause is not recorded."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0433"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          [
+            "open",
+            "open"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G003",
+      "conversation": [
+        {
+          "invocation_id": "G003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the root cause of INC0431?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The root cause of INC0431 was \"Database connection pool too small\"."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0431"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          "Database connection pool too small"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G004",
+      "conversation": [
+        {
+          "invocation_id": "G004",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which change is recorded against INC0431, and which team owned it?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The change recorded against INC0431 is CHG0111. The incident was owned by the Checkout-Experience team."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0431"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "CHG0111",
+          "Checkout-Experience"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G005",
+      "conversation": [
+        {
+          "invocation_id": "G005",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the current priority of INC0230 and what was its root cause?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The current priority of INC0230 is P1. The root cause was \"Race condition in decrement\"."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0230"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          "P1",
+          "Race condition in decrement"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G006",
+      "conversation": [
+        {
+          "invocation_id": "G006",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many times was INC0131 reopened, and when was it finally resolved?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0131 was reopened 1 time and was finally resolved at 2026-09-10 13:00 UTC."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0131"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "1",
+            "once",
+            "one time",
+            "1 time"
+          ],
+          [
+            "2026-09-10",
+            "10 September",
+            "September 10",
+            "Sept 10"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G007",
+      "conversation": [
+        {
+          "invocation_id": "G007",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me the summary of INC0102 exactly as written."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The summary of INC0102 is: Pagos rechazados \u2014 tarjeta \u2615 \u6c7a\u6e08\u30a8\u30e9\u30fc (caf\u00e9)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0102"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "Pagos rechazados",
+          "\u6c7a\u6e08\u30a8\u30e9\u30fc"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G008",
+      "conversation": [
+        {
+          "invocation_id": "G008",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the root cause of INC0121?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The root cause of INC0121 was not recorded as it was closed as cannot-reproduce."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0121"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "no root cause",
+            "not recorded",
+            "none recorded",
+            "not identified",
+            "cannot reproduce",
+            "cannot_reproduce",
+            "could not be reproduced",
+            "not available",
+            "no recorded"
+          ]
+        ],
+        "must_not_include": [
+          "cache",
+          "memory leak",
+          "CDN",
+          "network"
+        ],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "lookup",
+        "split": "all"
+      }
+    }
+  ]
+}

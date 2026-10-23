@@ -1,0 +1,10 @@
+google-adk[eval]==2.12.0
+mcp<2
+psycopg[binary]
+python-dotenv
+fastapi
+uvicorn[standard]
+pytest
+pytest-asyncio
+pytest-timeout
+pandas

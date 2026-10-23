@@ -1,0 +1,516 @@
+{
+  "eval_set_id": "overwatch_metrics",
+  "name": "Overwatch Metrics Questions",
+  "description": "Golden metrics questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G030",
+      "conversation": [
+        {
+          "invocation_id": "G030",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the average error rate for payments between 02:00 and 05:00 UTC on 30 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "About 6.2% (the same hours the day before: 0.18%)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "6.2",
+            "6.20",
+            "6"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G031",
+      "conversation": [
+        {
+          "invocation_id": "G031",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the peak p95 latency for search between 08:00 and 10:00 UTC on 30 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "764 ms."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "764",
+            "763.6"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G032",
+      "conversation": [
+        {
+          "invocation_id": "G032",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the CPU usage for inventory between 03:00 and 06:00 UTC on 21 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "There are no readings: monitoring had a gap. It must not say 0% or that CPU was fine."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "gap",
+            "missing",
+            "no data",
+            "not available",
+            "unavailable",
+            "null",
+            "no readings",
+            "no samples",
+            "outage",
+            "cannot find",
+            "can't find",
+            "couldn't find",
+            "could not find"
+          ]
+        ],
+        "must_not_include": [
+          "cpu was 0",
+          "0% cpu",
+          "usage was 0",
+          "cpu usage was normal",
+          "healthy"
+        ],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G033",
+      "conversation": [
+        {
+          "invocation_id": "G033",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many 15-minute readings are missing for inventory between 02:00 and 07:00 UTC on 21 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "12 of 20."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "12"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G034",
+      "conversation": [
+        {
+          "invocation_id": "G034",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Was checkout traffic higher between 12:00 and 15:00 UTC on 14 September than at the same time on 15 September? Roughly by how much?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes: about 6863 against 2313 requests per minute (about 3.0 times)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agentcheckout",
+                  "start": "2026-09-14 12:00",
+                  "end": "2026-09-14 15:00"
+                }
+              },
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agentcheckout",
+                  "start": "2026-09-15 12:00",
+                  "end": "2026-09-15 15:00"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "yes",
+            "higher"
+          ],
+          [
+            "3.0",
+            "2.97",
+            "3"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G035",
+      "conversation": [
+        {
+          "invocation_id": "G035",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Did catalog memory usage change between 22 and 25 September 2026? Compare 04:00 to 05:45 UTC on each day."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "It climbed from about 63% to 99% (the memory leak)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agentcatalog",
+                  "start": "2026-09-22 04:00",
+                  "end": "2026-09-22 05:45"
+                }
+              },
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agentcatalog",
+                  "start": "2026-09-25 04:00",
+                  "end": "2026-09-25 05:45"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "62",
+            "63",
+            "64",
+            "63.1"
+          ],
+          [
+            "98",
+            "99",
+            "100",
+            "99.4"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G036",
+      "conversation": [
+        {
+          "invocation_id": "G036",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the average CPU for loyalty on 10 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "About 16%."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          [
+            "16",
+            "15.7"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "metrics",
+        "split": "all"
+      }
+    }
+  ]
+}

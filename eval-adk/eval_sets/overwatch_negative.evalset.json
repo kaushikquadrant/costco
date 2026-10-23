@@ -1,0 +1,448 @@
+{
+  "eval_set_id": "overwatch_negative",
+  "name": "Overwatch Negative Questions",
+  "description": "Golden negative questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G053",
+      "conversation": [
+        {
+          "invocation_id": "G053",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the status of INC9999?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC9999 does not exist."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC9999"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          [
+            "no incident",
+            "not found",
+            "does not exist",
+            "no record",
+            "couldn't find",
+            "could not find",
+            "doesn't exist"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G054",
+      "conversation": [
+        {
+          "invocation_id": "G054",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many incidents has the loyalty service had?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "0. It is healthy."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "0",
+            "zero",
+            "no incidents",
+            "none"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G055",
+      "conversation": [
+        {
+          "invocation_id": "G055",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Did loyalty log any ERROR or FATAL lines in September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No (0)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "no ",
+            "none",
+            "zero",
+            "0 "
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G056",
+      "conversation": [
+        {
+          "invocation_id": "G056",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me the latest ERROR logs and incidents for legacy-reports."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "That service is decommissioned: there is no data."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "no data",
+            "no logs",
+            "no incidents",
+            "no matching",
+            "not found",
+            "no records",
+            "nothing",
+            "none",
+            "does not exist",
+            "no results",
+            "not available",
+            "no information",
+            "no metrics",
+            "no such",
+            "not a recognized",
+            "not recognized",
+            "unknown service",
+            "no billing",
+            "not a valid",
+            "doesn't exist",
+            "cannot find",
+            "can't find",
+            "couldn't find",
+            "could not find"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G057",
+      "conversation": [
+        {
+          "invocation_id": "G057",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the error rate for the billing service yesterday?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "There is no billing service in the data."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "no data",
+            "no logs",
+            "no incidents",
+            "no matching",
+            "not found",
+            "no records",
+            "nothing",
+            "none",
+            "does not exist",
+            "no results",
+            "not available",
+            "no information",
+            "no metrics",
+            "no such",
+            "not a recognized",
+            "not recognized",
+            "unknown service",
+            "no billing",
+            "not a valid",
+            "doesn't exist",
+            "cannot find",
+            "can't find",
+            "couldn't find",
+            "could not find"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G058",
+      "conversation": [
+        {
+          "invocation_id": "G058",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Were there any P1 incidents for shipping?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Check with the count tool; the answer may be none."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0001"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          [
+            "3",
+            "three"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "negative",
+        "split": "all"
+      }
+    }
+  ]
+}
