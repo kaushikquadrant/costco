@@ -34,6 +34,7 @@ button:disabled{opacity:.5;cursor:default}
   <header>
     <h1>Overwatch Mini</h1>
     <p>Ask about incidents, logs and metrics. The grey lines show which agent called which tool.</p>
+    <p style="margin-top:6px" id="grafana-link"></p>
   </header>
   <div id="log" aria-live="polite"></div>
   <div class="hints" id="hints"></div>
@@ -92,6 +93,13 @@ async function ask(text) {
   } finally { send.disabled = false; q.focus(); }
 }
 document.getElementById("f").onsubmit = e => { e.preventDefault(); ask(q.value); };
+if (window.GRAFANA_URL) {
+  const a = document.createElement("a");
+  a.href = window.GRAFANA_URL; a.target = "_blank";
+  a.style.cssText = "color:var(--accent);font-size:.85rem";
+  a.textContent = "Open Grafana Dashboards →";
+  document.getElementById("grafana-link").append(a);
+}
 </script>
 </body>
 </html>
