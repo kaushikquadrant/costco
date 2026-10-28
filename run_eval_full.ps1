@@ -36,7 +36,7 @@ if (-not $csvFile) {
 }
 
 Write-Host "`n[2/4] Analyzing $($csvFile.Name)..." -ForegroundColor Yellow
-& python "eval-adk\analyze_results.py" $csvFile.FullName
+& python "eval-adk\analyze_results.py" $csvFile.FullName --run-type $Category
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Analysis failed." -ForegroundColor Red
     exit 1

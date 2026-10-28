@@ -154,9 +154,61 @@ def analyze_csv(csv_file, latest_run_only=False):
 
     return summary
 
+def save_to_db(summary, run_id, run_type="unknown"):
+    """Write eval results to Supabase so Grafana can display them."""
+    import os
+    from datetime import datetime, timezone
+    import psycopg
+
+    url = os.environ.get("DATABASE_URL")
+    if not url:
+        print("DATABASE_URL not set - skipping database write")
+        return
+
+    run_at = datetime.now(timezone.utc)
+    overview = summary['overview']
+    cost = summary['cost_estimate']
+
+    with psycopg.connect(url) as con:
+        con.execute("""
+            INSERT INTO evalresults.runs
+                (run_id, run_type, run_at, total_cases, passed, failed, pass_rate, llm_calls, estimated_cost_usd)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (run_id) DO NOTHING """,
+            (run_id, run_type, run_at, overview['total_questions'], overview['passed'], overview['failed'],
+                overview['pass_rate'], cost['llm_calls'], cost['estimated_cost_usd']))
+
+        for criterion, stats in summary['by_criterion'].items():
+            con.execute("""
+                INSERT INTO evalresults.criteria
+                    (run_id, criterion, passed, failed, pass_rate, total)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    """,
+                (run_id, criterion, stats['passed'], stats['failed'], stats['pass_rate'], stats['total']))
+
+        for category, stats in summary['by_category'].items():
+            con.execute("""
+                INSERT INTO evalresults.categories
+                    (run_id, category, passed, failed, pass_rate, total)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                    """,
+                (run_id, category, stats['passed'], stats['failed'], stats['pass_rate'], stats['total']))
+
+        for failure in summary['failures']:
+            con.execute("""
+                INSERT INTO evalresults.failures
+                    (run_id, eval_id, question, failed_criteria)
+                    VALUES (%s, %s, %s, %s)
+                    """,
+                (run_id, failure['eval_id'], failure['question'], failure['failed_criteria']))
+    
+        con.commit()
+
+    print(f"Results saved to database (run_id: {run_id})")
+
+
 
 def main():
-    # Parse command line arguments
     parser = argparse.ArgumentParser(
         description="Analyze ADK evaluation results"
     )
@@ -169,6 +221,11 @@ def main():
         "--latest",
         action="store_true",
         help="Analyze only the latest run if multiple runs exist in CSV"
+    )
+    parser.add_argument(
+        "--run-type",
+        default="unknown",
+        help="Eval category name e.g. TestLookup or TestFullSuite"
     )
     args = parser.parse_args()
 
@@ -233,6 +290,8 @@ def main():
         json.dump(summary, f, indent=2)
 
     print(f"\nSummary saved to: {output_file}")
+    run_id = Path(csv_file).stem
+    save_to_db(summary, run_id, run_type=args.run_type)
     print("Done!\n")
 
 
