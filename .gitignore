@@ -221,4 +221,11 @@ __marimo__/
 .venv/
 __pycache__/
 .env
+.env.*
+!.env.example
 *.pyc
+.venv/
+eval-adk/runs/
+ops_agent/.adk/
+ops_agent/eval_set_*.evalset.json
+__pycache__/

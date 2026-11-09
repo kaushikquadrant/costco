@@ -1,0 +1,46 @@
+{
+  "criteria": {
+    "tool_trajectory_avg_score": {
+      "threshold": 1.0,
+      "matchType": "IN_ORDER",
+      "ignoreArgs": true
+    },
+    "final_response_match_v2": {
+      "threshold": 0.7,
+      "judgeModelOptions": {
+        "numSamples": 3
+      },
+      "includeIntermediateResponsesInFinal": true
+    },
+    "hallucinations_v1": {
+      "threshold": 0.95,
+      "judgeModelOptions": {
+        "numSamples": 3
+      },
+      "evaluateIntermediateNlResponses": true
+    },
+    "rubric_based_final_response_quality_v1": {
+      "threshold": 0.75,
+      "judgeModelOptions": {
+        "numSamples": 3
+      },
+      "includeIntermediateResponsesInFinal": true,
+      "rubrics": [
+        {
+          "rubric_id": "relevance",
+          "type": "FINAL_RESPONSE_QUALITY",
+          "rubric_content": {
+            "text_property": "The response answers the user's question and does not add information unrelated to the incident, service or metric asked about. Brief warnings about suspicious or unsafe content in the data are acceptable."
+          }
+        },
+        {
+          "rubric_id": "clarity",
+          "type": "FINAL_RESPONSE_QUALITY",
+          "rubric_content": {
+            "text_property": "The response is clear and concise, and does not repeat itself."
+          }
+        }
+      ]
+    }
+  }
+}

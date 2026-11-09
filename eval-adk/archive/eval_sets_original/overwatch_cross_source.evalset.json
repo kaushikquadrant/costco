@@ -1,0 +1,670 @@
+{
+  "eval_set_id": "overwatch_cross_source",
+  "name": "Overwatch Cross Source Questions",
+  "description": "Golden cross_source questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G040",
+      "conversation": [
+        {
+          "invocation_id": "G040",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Give me the status of INC0428 and the payments error rate over the 3 hours from 02:00 UTC on 30 September 2026."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0428 is open (P1, no root cause recorded); the error rate was about 6.2%."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0428"
+                }
+              },
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {
+                  "service": "payments",
+                  "start": "2026-09-30 02:00",
+                  "end": "2026-09-30 05:00"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "open",
+          [
+            "6.2",
+            "6.20",
+            "6"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent",
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ],
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G041",
+      "conversation": [
+        {
+          "invocation_id": "G041",
+          "user_content": {
+            "parts": [
+              {
+                "text": "For INC0428, is a root cause recorded? Do not guess from the logs or metrics."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No. The incident is open and has no root cause recorded."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0428"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "no root cause",
+            "not recorded",
+            "no recorded",
+            "not yet recorded",
+            "not identified",
+            "none recorded"
+          ]
+        ],
+        "must_not_include": [
+          "v3.8.0",
+          "CHG0112",
+          "bad deploy"
+        ],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G042",
+      "conversation": [
+        {
+          "invocation_id": "G042",
+          "user_content": {
+            "parts": [
+              {
+                "text": "INC0433 is open. Is search healthy right now? Check its latest metrics and logs between 08:00 and 10:00 UTC on 30 September 2026."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Not resolved: the incident is open and latency is still high at 08:30 and 09:30, even though one INFO line at 09:00 says 'healthy'."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0433"
+                }
+              },
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {
+                  "service": "search",
+                  "start": "2026-09-30 08:00",
+                  "end": "2026-09-30 10:00"
+                }
+              },
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "metrics_agent"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {
+                  "service": "search",
+                  "start": "2026-09-30 08:00",
+                  "end": "2026-09-30 10:00",
+                  "granularity": "15min"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "open",
+            "still open",
+            "not resolved"
+          ]
+        ],
+        "must_not_include": [
+          "is resolved",
+          "has been resolved",
+          "fully recovered"
+        ],
+        "expected_agents": [
+          "incidents_agent",
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ],
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ],
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G043",
+      "conversation": [
+        {
+          "invocation_id": "G043",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which incident was the root of the 12 September 2026 sign-in outage, and which other incidents did it cause?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "INC0172 (auth, expired signing key) caused INC0173, INC0174."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0001"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "INC0172",
+          "INC0173",
+          "INC0174"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G044",
+      "conversation": [
+        {
+          "invocation_id": "G044",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many ERROR lines did notifications log while INC0289 was open, and what was the root cause?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "340 ERROR lines between 18:00 and 18:55 UTC; root cause: Queue consumer scaled to zero."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "count_incidents",
+                "args": {}
+              },
+              {
+                "name": "error_counts_by_service",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "340",
+          "Queue consumer scaled to zero"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent",
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "count_incidents"
+          ],
+          [
+            "error_counts_by_service"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G045",
+      "conversation": [
+        {
+          "invocation_id": "G045",
+          "user_content": {
+            "parts": [
+              {
+                "text": "During INC0268 on 19 September 2026, what did the catalog logs show, and what was the root cause?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Price feed rows rejected (WARN lines); root cause: Pricing feed import error."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0268"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "price feed",
+          "Pricing feed import error"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent",
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G046",
+      "conversation": [
+        {
+          "invocation_id": "G046",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Between 03:00 and 06:00 UTC on 21 September 2026 inventory had no logs. Does that mean it had no errors?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No. Both logs and metrics have a gap, so there is no evidence either way."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "count_logs",
+                "args": {
+                  "service": "inventory",
+                  "start": "2026-09-21 03:00",
+                  "end": "2026-09-21 06:00"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {
+                  "service": "inventory",
+                  "start": "2026-09-21 03:00",
+                  "end": "2026-09-21 06:00"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          [
+            "gap",
+            "missing",
+            "no data",
+            "not available",
+            "unavailable",
+            "null",
+            "no readings",
+            "no samples",
+            "outage",
+            "cannot find",
+            "can't find",
+            "couldn't find",
+            "could not find"
+          ]
+        ],
+        "must_not_include": [
+          "no errors occurred",
+          "had no errors",
+          "was healthy"
+        ],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G047",
+      "conversation": [
+        {
+          "invocation_id": "G047",
+          "user_content": {
+            "parts": [
+              {
+                "text": "INC0352 was a catalog memory problem. What is its root cause, and how did memory behave in the days before it?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Memory leak in image resizer v2.2; memory climbed steadily over the days before."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "incidents_agent"
+                }
+              },
+              {
+                "name": "get_incident",
+                "args": {
+                  "incident_id": "INC0352"
+                }
+              },
+              {
+                "name": "get_metrics",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "Memory leak in image resizer v2.2"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "incidents_agent",
+          "metrics_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "get_incident"
+          ],
+          [
+            "get_metrics"
+          ]
+        ],
+        "category": "cross_source",
+        "split": "all"
+      }
+    }
+  ]
+}

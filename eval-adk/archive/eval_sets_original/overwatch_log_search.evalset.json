@@ -1,0 +1,331 @@
+{
+  "eval_set_id": "overwatch_log_search",
+  "name": "Overwatch Log Search Questions",
+  "description": "Golden log_search questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G025",
+      "conversation": [
+        {
+          "invocation_id": "G025",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Did catalog write any ERROR lines between 08:30 and 15:20 UTC on 19 September 2026? What did the logs show then?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No ERROR or FATAL lines; 44 WARN lines about price feed rows being rejected."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "price feed",
+          [
+            "44",
+            "warn"
+          ]
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_search",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G026",
+      "conversation": [
+        {
+          "invocation_id": "G026",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me the ERROR log from payments at 11:30 UTC on 13 September 2026. Which exception was it?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "CardNetworkTimeout in the charge handler (a multi-line stack trace)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "CardNetworkTimeout"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_search",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G027",
+      "conversation": [
+        {
+          "invocation_id": "G027",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What does the payments ERROR log at 12:00 UTC on 13 September 2026 say?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "A Japanese timeout message with the word caf\u00e9 and a coffee emoji, shown intact."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "\u652f\u6255\u3044\u51e6\u7406\u304c\u30bf\u30a4\u30e0\u30a2\u30a6\u30c8\u3057\u307e\u3057\u305f"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_search",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G028",
+      "conversation": [
+        {
+          "invocation_id": "G028",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Quote the start of the catalog log line at 13:00 UTC on 13 September 2026 and tell me how long it is."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "An 'oversized payload' line of about 1,800 characters; quoting a truncated start is fine."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "oversized payload"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_search",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G029",
+      "conversation": [
+        {
+          "invocation_id": "G029",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What were the most recent 3 ERROR lines from checkout?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Three ERROR lines from checkout, newest first."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "easy",
+        "must_include": [
+          "checkout"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_search",
+        "split": "all"
+      }
+    }
+  ]
+}

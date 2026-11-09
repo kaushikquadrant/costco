@@ -1,0 +1,392 @@
+{
+  "eval_set_id": "overwatch_log_count",
+  "name": "Overwatch Log Count Questions",
+  "description": "Golden log_count questions for Overwatch Mini IT Operations Assistant",
+  "eval_cases": [
+    {
+      "eval_id": "G019",
+      "conversation": [
+        {
+          "invocation_id": "G019",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many ERROR log lines did notifications write between 18:00 and 18:30 UTC on 20 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "340. This is above the 200-row search limit, so it must come from the count tool."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "error_counts_by_service",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "340"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "error_counts_by_service"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G020",
+      "conversation": [
+        {
+          "invocation_id": "G020",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many FATAL lines did auth log between 14:00 and 15:00 UTC on 12 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "93."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "93"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G021",
+      "conversation": [
+        {
+          "invocation_id": "G021",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many ERROR lines did search write in the single second 03:15:20 UTC on 11 September 2026?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "5 (identical lines; do not de-duplicate)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "error_counts_by_service",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "5"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "error_counts_by_service"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G022",
+      "conversation": [
+        {
+          "invocation_id": "G022",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many ERROR lines did payments log on 14 September 2026 (UTC)? A line at 23:59:59 counts, one at 00:00:00 on the 15th does not."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "5."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "error_counts_by_service",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "5"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "error_counts_by_service"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G023",
+      "conversation": [
+        {
+          "invocation_id": "G023",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many ERROR lines did payments log in total on 30 September 2026 (UTC)?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "171."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "error_counts_by_service",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "hard",
+        "must_include": [
+          "171"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "error_counts_by_service"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    },
+    {
+      "eval_id": "G024",
+      "conversation": [
+        {
+          "invocation_id": "G024",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which service logged the most ERROR lines on 20 September 2026, and how many?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "notifications with 340."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "transfer_to_agent",
+                "args": {
+                  "agent_name": "logs_agent"
+                }
+              },
+              {
+                "name": "search_logs",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "ops_agent",
+        "user_id": "eval_user",
+        "state": {}
+      },
+      "_metadata": {
+        "difficulty": "medium",
+        "must_include": [
+          "notifications",
+          "340"
+        ],
+        "must_not_include": [],
+        "expected_agents": [
+          "logs_agent"
+        ],
+        "expected_tools": [
+          [
+            "transfer_to_agent"
+          ],
+          [
+            "search_logs"
+          ]
+        ],
+        "category": "log_count",
+        "split": "all"
+      }
+    }
+  ]
+}
